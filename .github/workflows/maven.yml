@@ -46,6 +46,7 @@ jobs:
         else
           # Update the README.md file
           sed -i 's|![Test Status](https://img.shields.io/badge/tests-[^)]*)|![Test Status](https://img.shields.io/badge/tests-'${TEST_STATUS}'-'${TEST_COLOR}')|' README.md
+        echo "edited the README.md file"
         fi
         
         # Debugging: Print the updated badge line
