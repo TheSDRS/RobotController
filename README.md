@@ -4,11 +4,11 @@
 RobotController is a public repository for managing and controlling LegoMindstorms robots. The repository primarily contains code written in Java, along with some JavaScript, Python, CSS, and HTML.
 
 ## Language Composition
-- **Java**: ![Java](https://img.shields.io/badge/dynamic/json?color=blue&label=Java&query=Java&url=https://api.github.com/repos/TheSDRS/RobotController/languages)
-- **JavaScript**: ![JavaScript](https://img.shields.io/badge/dynamic/json?color=yellow&label=JavaScript&query=JavaScript&url=https://api.github.com/repos/TheSDRS/RobotController/languages)
-- **Python**: ![Python](https://img.shields.io/badge/dynamic/json?color=green&label=Python&query=Python&url=https://api.github.com/repos/TheSDRS/RobotController/languages)
-- **CSS**: ![CSS](https://img.shields.io/badge/dynamic/json?color=red&label=CSS&query=CSS&url=https://api.github.com/repos/TheSDRS/RobotController/languages)
-- **HTML**: ![HTML](https://img.shields.io/badge/dynamic/json?color=orange&label=HTML&query=HTML&url=https://api.github.com/repos/TheSDRS/RobotController/languages)
+![Java](https://img.shields.io/badge/dynamic/json?color=blue&label=Java&query=Java&url=https://api.github.com/repos/TheSDRS/RobotController/languages)
+![JavaScript](https://img.shields.io/badge/dynamic/json?color=yellow&label=JavaScript&query=JavaScript&url=https://api.github.com/repos/TheSDRS/RobotController/languages)
+![Python](https://img.shields.io/badge/dynamic/json?color=green&label=Python&query=Python&url=https://api.github.com/repos/TheSDRS/RobotController/languages)
+![CSS](https://img.shields.io/badge/dynamic/json?color=red&label=CSS&query=CSS&url=https://api.github.com/repos/TheSDRS/RobotController/languages)
+![HTML](https://img.shields.io/badge/dynamic/json?color=orange&label=HTML&query=HTML&url=https://api.github.com/repos/TheSDRS/RobotController/languages)
 
 ## Features
 - Robotic system management
