@@ -40,7 +40,7 @@ jobs:
         echo "Existing badge line (before update):"
         grep 'Test Status' README.md || echo "Badge not found in README.md"
         
-        grep -q 'Test Status(.*)' README.md || echo "Badge not found in README.md"
+        grep '![Test Status](.*)' README.md || echo "Badge not found in README.md"
         
         # Add the badge if it doesn't exist
         if ! grep -q 'Test Status' README.md; then
