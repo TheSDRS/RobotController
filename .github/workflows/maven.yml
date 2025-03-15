@@ -23,10 +23,10 @@ jobs:
         distribution: 'oracle'
         cache: maven
     - name: Build with Maven
-      run: mvn -B package --file RobotControInterface/pom.xml
+      run: mvn -B package --file RobotControlnterface/pom.xml
 
     - name: Run Tests
-      run: mvn -B test --file RobotControInterface/pom.xml
+      run: mvn -B test --file RobotControlnterface/pom.xml
 
     - name: Update README with Test Status
       if: always()
