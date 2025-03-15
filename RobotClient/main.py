@@ -8,4 +8,3 @@ import RobotSimulation, json
 robot_client = RobotClient(api_key="password")
 response = robot_client.get_all_information()
 print(json.dumps(response.get("light"), indent=4))
-
