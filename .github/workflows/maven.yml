@@ -42,7 +42,7 @@ jobs:
         
         # Add the badge if it doesn't exist
         if ! grep -q '![Test Status]' README.md; then
-          echo -e "![Test Status](https://img.shields.io/badge/tests-'${TEST_STATUS}'-'${TEST_COLOR}')\n$(cat README.md)" > README.md
+          echo -e "![Test Status](https://img.shields.io/badge/tests-${TEST_STATUS}-${TEST_COLOR})\n$(cat README.md)" > README.md
         else
           # Update the README.md file
           sed -i 's|![Test Status](.*)|![Test Status](https://img.shields.io/badge/tests-'${TEST_STATUS}'-'${TEST_COLOR}')|' README.md
