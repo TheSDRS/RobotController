@@ -40,9 +40,7 @@ jobs:
         echo "Existing badge line (before update):"
         grep 'Test Status' README.md || echo "Badge not found in README.md"
         
-        # Debugging: Print the entire README.md file before update
-        echo "README.md content (before update):"
-        cat README.md
+        grep 'Test Status(.*)' README.md || echo "Badge not found in README.md"
         
         # Add the badge if it doesn't exist
         if ! grep -q 'Test Status' README.md; then
@@ -55,11 +53,7 @@ jobs:
         # Debugging: Print the updated badge line
         echo "Updated badge line (after update):"
         grep 'Test Status' README.md || echo "Badge not updated in README.md"
-        
-        # Debugging: Print the entire README.md file after update
-        echo "README.md content (after update):"
-        cat README.md
-        
+                
         # Check if there are changes in README.md
         if ! git diff --quiet README.md; then
           echo "Changes detected in README.md"
