@@ -6,7 +6,19 @@
 ![GitHub contributors](https://img.shields.io/github/contributors/TheSDRS/RobotController)
 
 ## Description
-RobotController is a public repository for managing and controlling LegoMindstorms robots. The repository primarily contains code written in Java, along with some JavaScript, Python, CSS, and HTML.
+RobotController is a public repository for managing and controlling LegoMindstorms robots.
+
+## Contents
+### Java Backend
+The Backend is handled by a Java Http Server that handles RESTful API requests and the webinterface for the user.<br><br>
+- The root URL is by default `http://localhost:8080/`
+- The API URL is by default `http://localhost:8080/api/`
+- The Webinterface URL is by default `http://localhost:8080/control/`
+- Tests are located at `http://localhost:8080/test/`
+
+### Python Project
+For connection with a robot use the Python project. It is a simple project that sends RESTful API requests to the Java backend.
+It contains a simple simulation of a robot for when you dont have access to one in real life.
 
 ## Language Composition
 ![Java](https://img.shields.io/badge/dynamic/json?color=blue&label=Java&query=Java&url=https://api.github.com/repos/TheSDRS/RobotController/languages)
@@ -16,15 +28,14 @@ RobotController is a public repository for managing and controlling LegoMindstor
 ![HTML](https://img.shields.io/badge/dynamic/json?color=orange&label=HTML&query=HTML&url=https://api.github.com/repos/TheSDRS/RobotController/languages)
 
 ## Features
-- Robotic system management
-- Control algorithms
+- RESTful API
+- Simple simulation of a robot
+- Robot control
 - Web-based user interface
-- Data processing and analytics
 
 ## Getting Started
 ### Prerequisites
 - Java Development Kit (JDK)
-- Node.js and npm
 - Python 3.x
 
 ### Installation
@@ -38,13 +49,21 @@ RobotController is a public repository for managing and controlling LegoMindstor
     ```
 3. Install the necessary dependencies:
     ```bash
-    npm install
+   cd RobotClient
+   .venv\Scripts\activate
+   pip install -r requirements.txt
     ```
 
 ## Usage
-To run the project, use the following command:
+To run the Java backend, use the following command:
 ```bash
-./run.sh
+mvn clean install
+```
+
+To run the Python project, use the following command:
+```bash
+.venv\Scripts\activate
+python main.py
 ```
 
 ## Contributing
