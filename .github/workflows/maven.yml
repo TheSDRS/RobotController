@@ -32,3 +32,17 @@ jobs:
 
     - name: Run Tests
       run: mvn -B test --file RobotControlnterface/pom.xml
+
+    - name: Update README with Test Status
+      if: always()
+      run: |
+        TEST_STATUS=$(if [ "${{ job.status }}" == "success" ]; then echo "passing"; else echo "failing"; fi)
+        TEST_COLOR=$(if [ "${{ job.status }}" == "success" ]; then echo "brightgreen"; else echo "red"; fi)
+        sed -i 's|![Test Status](.*)|![Test Status](https://img.shields.io/badge/tests-'${TEST_STATUS}'-'${TEST_COLOR}')|' README.md
+        git config --global user.email "actions@github.com"
+        git config --global user.name "GitHub Actions"
+        git add README.md
+        git commit -m "Update test status badge"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
