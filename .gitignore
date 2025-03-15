@@ -1,0 +1,11 @@
+/Config.ini
+/RobotControlnterface/.idea/
+/RobotControlnterface/node_modules/
+/RobotControlnterface/.gitignore
+/RobotControlnterface/Config.ini
+/RobotControlnterface/keystore.jks
+/RobotControlnterface/target/keystore.jks
+/RobotClient/.venv/
+/RobotClient/.idea/
+/RobotClient/.gitignore
+

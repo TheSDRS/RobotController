@@ -23,23 +23,12 @@ public class Config {
 
     public Config() {
         File configFile = new File("Config.ini");
-        File keyStoreFile = new File("keystore.jks");
         if (!configFile.exists()) {
             try (InputStream inputStream = Config.class.getClassLoader().getResourceAsStream(configFile.getName())) {
                 if (inputStream == null) {
                     throw new IOException("Default config file not found in resources");
                 }
                 Files.copy(inputStream, configFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        if (!keyStoreFile.exists()) {
-            try (InputStream inputStream = Config.class.getClassLoader().getResourceAsStream(keyStoreFile.getName())) {
-                if (inputStream == null) {
-                    throw new IOException("Default keystore file not found in resources");
-                }
-                Files.copy(inputStream, keyStoreFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
             } catch (IOException e) {
                 e.printStackTrace();
             }
