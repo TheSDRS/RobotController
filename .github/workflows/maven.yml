@@ -31,13 +31,19 @@ jobs:
     - name: Update README with Test Status
       if: always()
       run: |
-        TEST_STATUS=$(if [ "${{ job.status }}" == "success" ]; then echo "passing"; else echo "failing"; fi)
-        TEST_COLOR=$(if [ "${{ job.status }}" == "success" ]; then echo "brightgreen"; else echo "red"; fi)
+        TEST_STATUS=$(if [ "success" == "success" ]; then echo "passing"; else echo "failing"; fi)
+        TEST_COLOR=$(if [ "success" == "success" ]; then echo "brightgreen"; else echo "red"; fi)
+        echo "TEST_STATUS: ${TEST_STATUS}"
+        echo "TEST_COLOR: ${TEST_COLOR}"
         sed -i 's|![Test Status](.*)|![Test Status](https://img.shields.io/badge/tests-'${TEST_STATUS}'-'${TEST_COLOR}')|' README.md
+        if git diff --quiet README.md; then
+          echo "No changes detected in README.md"
+          exit 1
+        fi
         git config --global user.email "actions@github.com"
         git config --global user.name "GitHub Actions"
         git add README.md
-        git commit README.md -m "Update test status badge"
+        git commit -m "Update test status badge"
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
