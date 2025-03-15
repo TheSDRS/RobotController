@@ -49,15 +49,17 @@ It contains a simple simulation of a robot for when you dont have access to one 
     ```
 3. Install the necessary dependencies:
     ```bash
-   cd RobotClient
-   .venv\Scripts\activate
    pip install -r requirements.txt
     ```
 
 ## Usage
 To run the Java backend, use the following command:
 ```bash
-mvn clean install
+mvn clean package
+```
+To test the Java backend, use the following command:
+```bash
+mvn clean test
 ```
 
 To run the Python project, use the following command:
