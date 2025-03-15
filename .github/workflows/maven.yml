@@ -40,8 +40,13 @@ jobs:
         echo "Existing badge line:"
         grep '![Test Status]' README.md || echo "Badge not found in README.md"
         
-        # Update the README.md file
-        sed -i 's|![Test Status](.*)|![Test Status](https://img.shields.io/badge/tests-'${TEST_STATUS}'-'${TEST_COLOR}')|' README.md
+        # Add the badge if it doesn't exist
+        if ! grep -q '![Test Status]' README.md; then
+          echo -e "![Test Status](https://img.shields.io/badge/tests-'${TEST_STATUS}'-'${TEST_COLOR}')\n$(cat README.md)" > README.md
+        else
+          # Update the README.md file
+          sed -i 's|![Test Status](.*)|![Test Status](https://img.shields.io/badge/tests-'${TEST_STATUS}'-'${TEST_COLOR}')|' README.md
+        fi
         
         # Debugging: Print the updated badge line
         echo "Updated badge line:"
