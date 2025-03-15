@@ -1,5 +1,10 @@
 # RobotController
 
+![GitHub last commit](https://img.shields.io/github/last-commit/TheSDRS/RobotController)
+![GitHub issues](https://img.shields.io/github/issues/TheSDRS/RobotController)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/TheSDRS/RobotController)
+![GitHub contributors](https://img.shields.io/github/contributors/TheSDRS/RobotController)
+
 ## Description
 RobotController is a public repository for managing and controlling LegoMindstorms robots. The repository primarily contains code written in Java, along with some JavaScript, Python, CSS, and HTML.
 
@@ -47,3 +52,20 @@ Contributions are welcome! Please fork the repository and create a pull request.
 
 ## License
 This project is licensed under the MIT License.
+
+## Contributors
+Thanks goes to these wonderful people:
+![GitHub contributors](https://img.shields.io/github/contributors/TheSDRS/RobotController)
+
+## Open Issues
+![GitHub issues](https://img.shields.io/github/issues-raw/TheSDRS/RobotController)
+
+## Pull Requests
+![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/TheSDRS/RobotController)
+
+## Repository Stats
+![GitHub repo size](https://img.shields.io/github/repo-size/TheSDRS/RobotController)
+![GitHub code size](https://img.shields.io/github/languages/code-size/TheSDRS/RobotController)
+
+## Latest Release
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/TheSDRS/RobotController)
