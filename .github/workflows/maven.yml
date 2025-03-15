@@ -37,7 +37,7 @@ jobs:
         echo "TEST_COLOR: ${TEST_COLOR}"
         
         # Debugging: Print the existing badge line
-        echo "Existing badge line:"
+        echo "Existing badge line (before update):"
         grep '![Test Status]' README.md || echo "Badge not found in README.md"
         
         # Add the badge if it doesn't exist
@@ -49,19 +49,20 @@ jobs:
         fi
         
         # Debugging: Print the updated badge line
-        echo "Updated badge line:"
+        echo "Updated badge line (after update):"
         grep '![Test Status]' README.md || echo "Badge not updated in README.md"
         
         # Check if there are changes in README.md
-        if git diff --quiet README.md; then
+        if ! git diff --quiet README.md; then
+          echo "Changes detected in README.md"
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add README.md
+          git commit -m "Update test status badge"
+          git push
+        else
           echo "No changes detected in README.md"
           exit 1
         fi
-        
-        git config --global user.email "actions@github.com"
-        git config --global user.name "GitHub Actions"
-        git add README.md
-        git commit -m "Update test status badge"
-        git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
