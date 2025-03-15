@@ -1,0 +1,97 @@
+### Update Robot
+GET http://192.168.56.1:8080/api/update
+    ?receiver=robot
+
+### Move forward with speed 100
+GET http://192.168.56.1:8080/api/direct/move
+    ?direction=forward
+    &speed=100
+
+### Move backward with speed 100
+GET http://192.168.56.1:8080/api/direct/move
+    ?direction=backward
+    &speed=100
+
+### Rotate left with speed 100
+GET http://192.168.56.1:8080/api/direct/rotate
+    ?direction=left
+    &speed=100
+
+### Rotate right with speed 100
+GET http://192.168.56.1:8080/api/direct/rotate
+    ?direction=right
+    &speed=100
+
+### Stop
+GET http://192.168.56.1:8080/api/direct/stop
+
+### Drive Right Motor with speed 100
+GET http://192.168.56.1:8080/api/direct/part/motor
+    ?motor=right
+    &speed=100
+
+### Drive Left Motor with speed 100
+GET http://192.168.56.1:8080/api/direct/part/motor
+    ?motor=left
+    &speed=100
+
+### Turn the light on in white
+GET http://192.168.56.1:8080/api/direct/part/hub/light
+    ?color=white
+    &on=True
+
+### Turn the light off
+GET http://192.168.56.1:8080/api/direct/part/hub/light
+    ?color=white
+    &on=False
+
+### Beep the Speaker
+GET http://192.168.56.1:8080/api/direct/part/hub/speaker
+    ?action=beep
+    &volume=100
+    &frequency=440
+    &duration=100
+
+### Say a specific text on the Speaker
+GET http://192.168.56.1:8080/api/direct/part/hub/speaker
+    ?action=say
+    &text=Hello%20World
+    &language=en
+    &voice=m3
+    &volume=100
+    &pitch=100
+    &speed=100
+
+### Clear Screen
+GET http://192.168.56.1:8080/api/direct/part/hub/screen
+    ?action=clear
+
+### Write Text on the Screen
+GET http://192.168.56.1:8080/api/direct/part/hub/screen
+    ?action=write
+    &text=Hello%20World
+    &font=Lucida
+    &fontSize=12
+    &size=1
+
+### Get Battery Level
+GET http://192.168.56.1:8080/api/direct/part/hub/battery
+    ?action=get
+
+### Get the touch state of sensor A
+GET http://192.168.56.1:8080/api/direct/sensors/touch
+    ?port=A
+    &action=get
+
+### Get the touch state of sensor B
+GET http://192.168.56.1:8080/api/direct/sensors/touch
+    ?port=B
+    &action=get
+
+### Get the readings of the color sensor
+GET http://192.168.56.1:8080/api/direct/sensors/color
+    ?action=get
+
+### Get the readings of the distance sensor
+GET http://192.168.56.1:8080/api/direct/sensors/ultrasonic
+    ?action=get

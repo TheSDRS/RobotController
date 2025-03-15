@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Tester</title>
+    <link rel="stylesheet" href="/test/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>API Tester</h1>
+    <div class="timer" id="timer">Next request in: 10 seconds</div>
+    <div class="loading-bar">
+        <div class="loading-bar-fill" id="loadingBar"></div>
+    </div>
+    <div class="controls">
+        <button id="pauseButton" class="styled-button">Pause</button>
+        <button id="specificRequestButton" class="styled-button">Send Specific Request</button>
+    </div>
+    <div id="responseContainer">
+                <tr>
+                    <th>URL</th>
+                    <th>Response</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <script src="/test/script.js"></script>
+</body>
+</html>

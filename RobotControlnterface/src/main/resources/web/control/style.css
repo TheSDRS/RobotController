@@ -1,0 +1,306 @@
+:root {
+    --background-color: #111111;
+    --primary-color: #3a3a3a;
+    --secondary-color: #555555;
+    --brighter-secondary-color: #666666;
+    --tertiary-color: #e9be00;
+    --darker-tertiary-color: #bda125;
+    --active-tab-z-index: 100;
+    --active-tab-box-shadow: 2px 0 5px rgba(0, 0, 0, 1);
+    --line-color: var(--tertiary-color); /* Changeable line color */
+    --dot-size: 10px; /* Thicker dot */
+    --line-width: 3px; /* Thicker line */
+}
+
+/* General styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    background-color: var(--background-color);
+}
+
+.tabs {
+    display: flex;
+    background: var(--background-color);
+    height: 40px;
+}
+
+.tab {
+    flex: 1;
+    padding: 10px;
+    margin-top: 5px;
+    color: #999999;
+    background-color: var(--secondary-color);
+    max-width: 200px;
+    max-height: 35px;
+    border: none;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    cursor: pointer;
+    text-shadow: 0 0 5px black;
+    font-weight: bold;
+    font-size: large;
+    transition: 0.3s;
+}
+
+.tab.active {
+    background: var(--secondary-color);
+    z-index: calc(var(--active-tab-z-index));
+    box-shadow: var(--active-tab-box-shadow);
+    max-height: 40px;
+    margin-top: 0;
+    color: var(--tertiary-color);
+}
+
+.tab-content {
+    display: none;
+    height: calc(100vh - 40px);
+    box-shadow: var(--active-tab-box-shadow);
+}
+
+.tab-content.active {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Nodes tab styles */
+#nodes-tab {
+    position: relative;
+}
+
+#toolbar {
+    width: 250px;
+    max-width: 250px;
+    min-width: 250px;
+    background: var(--secondary-color);
+    padding: 10px;
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.25);
+    z-index: var(--active-tab-z-index);
+}
+
+.node-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: var(--brighter-secondary-color);
+    color: var(--tertiary-color);
+    text-shadow: 0 0 5px black;
+    font-weight: bold;
+    font-size: large;
+    border: var(--tertiary-color) 2px solid;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 0 0 10px black inset;
+    transition: 0.25s;
+}
+
+.node-button:hover {
+    box-shadow: 0 0 10px var(--tertiary-color), 0 0 10px var(--tertiary-color) inset;
+}
+
+.node {
+    position: absolute;
+    width: 120px;
+    height: 50px;
+    background-color: #3e84c5;
+    color: white;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 0 0 10px black inset;
+    cursor: grab;
+    z-index: 1;
+    user-select: none;
+    scale: 1;
+    rotate: 0;
+    transition: box-shadow 0.25s, scale .25s, rotate 0.2s;
+}
+
+.node.active {
+    display: flex;
+}
+
+.node:active {
+    cursor: grabbing;
+    z-index: 1000;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 1), 0 0 10px var(--tertiary-color), 0 0 10px var(--tertiary-color) inset;
+    scale: 1.05;
+    rotate: 1.5deg;
+}
+
+.node p {
+    color: white;
+    font-weight: bold;
+    scale: 1.1;
+    text-shadow: 0 0 5px black;
+}
+
+.input-point,
+.output-point {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--tertiary-color);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.input-point {
+    top: 50%;
+    left: -5px;
+    transform: translateY(-50%);
+}
+
+.output-point {
+    top: 50%;
+    right: -5px;
+    transform: translateY(-50%);
+}
+
+.startNode {
+    background-color: #33be56;
+}
+
+.endNode {
+    background-color: #f34545;
+}
+
+.input-point:hover,
+.output-point:hover {
+    background-color: var(--darker-tertiary-color);
+}
+
+#separator {
+    position: absolute;
+    border: 1px solid var(--tertiary-color);
+    border-radius: 5px;
+    left: 10px;
+    bottom: 60px;
+    width: 250px;
+    box-shadow: 0 0 10px black;
+}
+
+.bottom-buttons {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 250px;
+}
+
+
+.bottom-buttons button {
+    flex: 1;
+    margin: 0 5px;
+    padding: 10px;
+    background: var(--brighter-secondary-color);
+    color: var(--tertiary-color);
+    text-shadow: 0 0 5px black;
+    font-weight: bold;
+    font-size: large;
+    border: var(--tertiary-color) 2px solid;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 0 0 10px black inset;
+    transition: .25s;
+}
+
+.bottom-buttons button:hover {
+    box-shadow: 0 0 10px var(--tertiary-color), 0 0 10px var(--tertiary-color) inset;
+}
+
+#canvas {
+    flex: 1;
+    background-size: 40px 40px;
+    background-color: var(--primary-color);
+    background-image: radial-gradient(circle, #4d4d4d 1px, rgba(0, 0, 0, 0) 1px);
+    background-repeat: repeat;
+}
+
+/* Direct tab styles */
+#direct-tab .direct-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+#cameraInfo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    z-index: 1006;
+    user-select: none;
+}
+
+#overlayCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none; /* Allow mouse events to pass through */
+    z-index: 1000; /* Lower z-index to place it below the SVG */
+}
+
+.object-info {
+    position: absolute;
+    left: 200px;
+    top: 200px;
+    width: 200px;
+    height: 300px;
+    background: var(--brighter-secondary-color);
+    color: var(--tertiary-color);
+    text-shadow: 0 0 5px black;
+    font-weight: bold;
+    font-size: large;
+    border: var(--tertiary-color) 2px solid;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 0 0 10px black inset;
+    padding: 10px;
+    z-index: 1003; /* Higher z-index to place it above the SVG */
+    display: none; /* Hidden by default */
+    user-select: none;
+}
+
+.object-info .title-container {
+    cursor: move;
+}
+
+.object-info .divider {
+    box-shadow: 0 0 5px black;
+    border: 1px solid var(--tertiary-color);
+    border-radius: 5px;
+}
+
+.object-info .close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.svg-dot {
+    position: absolute;
+    pointer-events: none; /* Allow mouse events to pass through */
+    z-index: 1002; /* Higher z-index to place it above the canvas */
+}

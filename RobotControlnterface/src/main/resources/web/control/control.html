@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NodeGraph Editor</title>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/OBJLoader.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Add this line to include jQuery -->
+    <link rel="stylesheet" href="/control/style.css">
+</head>
+<body>
+<!-- Tabs -->
+<div class="tabs">
+    <button class="tab active" data-tab="nodes">Nodes</button>
+    <button class="tab" data-tab="direct">Direct</button>
+</div>
+
+<!-- Nodes Tab -->
+<div id="nodes-tab" class="tab-content active">
+    <div id="toolbar">
+        <button class="node-button" data-type="START" data-name="Start">Start</button>
+        <button class="node-button" data-type="N" data-name="Node">Node</button>
+        <button class="node-button" data-type="N" data-name="Lol123">Lol123</button>
+        <button class="node-button" data-type="END" data-name="End">End</button>
+        <hr id="separator">
+        <div class="bottom-buttons">
+            <button id="startBtn">Start</button>
+            <button id="stopBtn">Stop</button>
+            <button id="pauseBtn">Pause</button>
+        </div>
+    </div>
+    <canvas id="canvas"></canvas>
+</div>
+
+<!-- Direct Tab -->
+<div id="direct-tab" class="tab-content">
+    <div class="direct-controls">
+        <div id="cameraInfo"></div>
+    </div>
+</div>
+
+<script type="module" src="/control/script.js"></script>
+<script type="module" src="/control/nodeGraph.js"></script>
+<script type="module" src="/control/directControls.js"></script>
+</body>
+</html>
