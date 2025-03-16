@@ -1,3 +1,4 @@
+![Test Status](https://img.shields.io/badge/tests-passing-brightgreen)
 # RobotController
 
 ![Build Status](https://img.shields.io/badge/build-unknown-lightgrey)
@@ -66,7 +67,7 @@ mvn clean test
 
 To run the Python project, use the following command:
 ```bash
-.venv\Scripts\activate
+.venv\Scriptsctivate
 python main.py
 ```
 
