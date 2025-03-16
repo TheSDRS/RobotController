@@ -39,11 +39,7 @@ jobs:
       
         # Debugging: Print the existing badge line
         echo "Existing badge line (before update):"
-        grep '![Test Status](https://img.shields.io/badge/tests-' README.md || echo "Badge not found in README.md"
-        
-        # Debugging: Print the entire README.md file before update
-        echo "README.md content (before update):"
-        cat README.md
+        grep 'Test Status(https://img.shields.io/badge/tests-' README.md || echo "Badge not found in README.md"
         
         # Replace the badge if it exists
         if grep -q '![Test Status](https://img.shields.io/badge/tests-' README.md; then
@@ -56,10 +52,6 @@ jobs:
         # Debugging: Print the updated badge line
         echo "Updated badge line (after update):"
         grep '![Test Status](https://img.shields.io/badge/tests-' README.md || echo "Badge not updated in README.md"
-        
-        # Debugging: Print the entire README.md file after update
-        echo "README.md content (after update):"
-        cat README.md
         
         # Check if there are changes in README.md
         if ! git diff --quiet README.md; then
