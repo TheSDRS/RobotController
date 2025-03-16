@@ -71,7 +71,7 @@ python main.py
 ```
 
 ## Contributing
-Contributions are welcome![Test Status](https://img.shields.io/badge/tests-passing-brightgreen)Please fork the repository and create a pull request.
+Contributions are welcome!Please fork the repository and create a pull request.
 
 ## License
 This project is licensed under the MIT License.
