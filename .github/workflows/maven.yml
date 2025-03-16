@@ -36,22 +36,22 @@ jobs:
         TEST_COLOR=$(if [ "success" == "success" ]; then echo "brightgreen"; else echo "red"; fi)
         echo "TEST_STATUS: ${TEST_STATUS}"
         echo "TEST_COLOR: ${TEST_COLOR}"
-      
+        
         # Debugging: Print the existing badge line
         echo "Existing badge line (before update):"
-        grep 'Test Status(https://img.shields.io/badge/tests-' README.md || echo "Badge not found in README.md"
+        grep 'Test Status' README.md || echo "Badge not found in README.md"
         
-        # Replace the badge if it exists
-        if grep -q '![Test Status](https://img.shields.io/badge/tests-' README.md; then
+        # Add the badge if it doesn't exist
+        if ! grep -q '![Test Status](https://img.shields.io/badge/tests-' README.md; then
+          echo -e "![Test Status](https://img.shields.io/badge/tests-${TEST_STATUS}-${TEST_COLOR})\n$(cat README.md)" > README.md
+        else
           # Update the README.md file
           sed -i 's|![Test Status](https://img.shields.io/badge/tests-[^)]*)|![Test Status](https://img.shields.io/badge/tests-'${TEST_STATUS}'-'${TEST_COLOR}')|' README.md
-        else
-          echo "Badge not found in README.md"
         fi
         
         # Debugging: Print the updated badge line
         echo "Updated badge line (after update):"
-        grep '![Test Status](https://img.shields.io/badge/tests-' README.md || echo "Badge not updated in README.md"
+        grep 'Test Status' README.md || echo "Badge not updated in README.md"
         
         # Check if there are changes in README.md
         if ! git diff --quiet README.md; then
