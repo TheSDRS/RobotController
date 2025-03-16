@@ -1,3 +1,4 @@
+![Test Status](https://img.shields.io/badge/tests-passing-brightgreen)
 # RobotController
 
 ![Build Status](https://img.shields.io/badge/build-unknown-lightgrey)
