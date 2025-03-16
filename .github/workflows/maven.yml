@@ -39,14 +39,14 @@ jobs:
       
         # Debugging: Print the existing badge line
         echo "Existing badge line (before update):"
-        grep '![Test Status](https://img.shields.io/badge/tests-' README.md || echo "Badge not found in README.md"
+        grep 'Test Status(https://img.shields.io/badge/tests-' README.md || echo "Badge not found in README.md"
         
         # Replace the badge if it exists
         if grep -q '![Test Status](https://img.shields.io/badge/tests-' README.md; then
-        # Update the README.md file
-        sed -i 's|![Test Status](https://img.shields.io/badge/tests-[^)]*)|![Test Status](https://img.shields.io/badge/tests-'${TEST_STATUS}'-'${TEST_COLOR}')|' README.md
+          # Update the README.md file
+          sed -i 's|![Test Status](https://img.shields.io/badge/tests-[^)]*)|![Test Status](https://img.shields.io/badge/tests-'${TEST_STATUS}'-'${TEST_COLOR}')|' README.md
         else
-        echo "Badge not found in README.md"
+          echo "Badge not found in README.md"
         fi
         
         # Debugging: Print the updated badge line
@@ -55,15 +55,15 @@ jobs:
         
         # Check if there are changes in README.md
         if ! git diff --quiet README.md; then
-        echo "Changes detected in README.md"
-        git config --global user.email "actions@github.com"
-        git config --global user.name "GitHub Actions"
-        git add README.md
-        git commit -m "Update test status badge"
-        git push
+          echo "Changes detected in README.md"
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add README.md
+          git commit -m "Update test status badge"
+          git push
         else
-        echo "No changes detected in README.md"
-        exit 1
+          echo "No changes detected in README.md"
+          exit 1
         fi
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
