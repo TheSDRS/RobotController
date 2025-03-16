@@ -31,11 +31,12 @@ jobs:
     - name: Update README with Test Status
       if: always()
       run: |
+        # Set the TEST_STATUS and TEST_COLOR variables
         TEST_STATUS=$(if [ "success" == "success" ]; then echo "passing"; else echo "failing"; fi)
         TEST_COLOR=$(if [ "success" == "success" ]; then echo "brightgreen"; else echo "red"; fi)
         echo "TEST_STATUS: ${TEST_STATUS}"
         echo "TEST_COLOR: ${TEST_COLOR}"
-        
+      
         # Debugging: Print the existing badge line
         echo "Existing badge line (before update):"
         grep '![Test Status](https://img.shields.io/badge/tests-' README.md || echo "Badge not found in README.md"
