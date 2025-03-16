@@ -42,7 +42,7 @@ jobs:
         grep 'Test Status' README.md || echo "Badge not found in README.md"
         
         # Add the badge if it doesn't exist
-        if ! grep -q '![Test Status](https://img.shields.io/badge/tests-' README.md; then
+        if ! grep -q 'Test Status' README.md; then
         echo "Badge not found in README.md adding new one"
           echo -e "![Test Status](https://img.shields.io/badge/tests-${TEST_STATUS}-${TEST_COLOR})\n$(cat README.md)" > README.md
         else
