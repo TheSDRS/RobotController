@@ -1,7 +1,5 @@
 # RobotController
 
-![Build Status](https://img.shields.io/badge/build-unknown-lightgrey)
-![Test Status](https://img.shields.io/badge/tests-unknown-lightgrey)
 ![GitHub last commit](https://img.shields.io/github/last-commit/TheSDRS/RobotController)
 ![GitHub issues](https://img.shields.io/github/issues/TheSDRS/RobotController)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/TheSDRS/RobotController)
